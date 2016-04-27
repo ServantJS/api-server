@@ -1,0 +1,233 @@
+#%RAML 0.8
+
+title: ServantJS
+version: v1
+baseUri: https://api.servantjs.com/{version}
+
+securedBy: [ authToken ]
+
+securitySchemes:
+    - authToken:
+         type: x-sjs-access_token
+         describedBy:
+             headers:
+                 X-SJS-AccessToken:
+                     pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+schemas:
+    - Response: !include schemas/response.json
+    - Server: !include schemas/server.json
+    - Servers: !include schemas/servers.json
+    - Task: !include schemas/task.json
+    - Tasks: !include schemas/tasks.json
+    - Worker: !include schemas/worker.json
+    - Workers: !include schemas/workers.json
+    - WorkersGroup: !include schemas/workers-group.json
+    - WorkersGroupP: !include schemas/workers-group-p.json
+    - WorkersGroups: !include schemas/workers-groups.json
+    - HAProxy: !include schemas/haproxy.json
+    - HAProxyP: !include schemas/haproxy-p.json
+    - HaProxies: !include schemas/haproxies.json
+
+traits:
+    - paged:
+        queryParameters:
+            limit:
+                description: Max count of requested servers.
+                type: integer
+                required: false
+                example: 20
+
+/servers:
+    description: CC servers' information
+    get:
+        description: Get CC server entity collection
+        is: [ paged ]
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Servers
+                        example: !include examples/servers.json
+    /{id}:
+        description: CC server entity
+        get:
+            description: Get CC server entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Server
+                            example: !include examples/server.json
+
+/workers:
+    description: Workers' information
+    get:
+        description: Get Worker entity collection
+        is: [ paged ]
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Workers
+                        example: !include examples/workers.json
+    /{id}:
+        description: Worker entity
+        get:
+            description: Get Worker entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Worker
+                            example: !include examples/worker.json
+
+/workers-groups:
+    description: Workers groups' information
+    get:
+        description: Get WorkerGroup entity collection
+        is: [ paged ]
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: WorkersGroupPs
+                        example: !include examples/workers-groups.json
+    post:
+        description: Create WorkerGroup entity
+        body:
+            application/json:
+                schema: WorkersGroupP
+                example: !include examples/workers-group-p.json
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Response
+                        example: |
+                            {
+                                "ok": true
+                            }
+    /{id}:
+        description: WorkerGroup entity
+        get:
+            description: Get WorkerGroup entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: WorkersGroup
+                            example: !include examples/workers-group.json
+        put:
+            description: Update WorkerGroup entity with `id = {id}`
+            body:
+                application/json:
+                    schema: WorkersGroupP
+                    example: !include examples/workers-group-p.json
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Response
+                            example: |
+                                {
+                                    "ok": true
+                                }
+        delete:
+            description: Delete WorkerGroup entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Response
+                            example: |
+                                {
+                                    "ok": true
+                                }
+/tasks:
+    description: Tasks' information
+    get:
+        description: Get Task entity collection
+        is: [ paged ]
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Tasks
+                        example: !include examples/tasks.json
+    /{id}:
+        description: Task entity
+        get:
+            description: Get Task entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Task
+                            example: !include examples/task.json
+
+/haproxy-configs:
+    description: HAProxy configs' information
+    get:
+        description: Get HAProxy config entity collection
+        is: [ paged ]
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: HAProxies
+                        example: !include examples/haproxies.json
+    post:
+        description: Create HAProxy config entity
+        body:
+            application/json:
+                schema: HAProxyP
+                example: !include examples/haproxy-p.json
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Response
+                        example: |
+                            {
+                                "data": {"task_id": "56f3f9a21241191520b03607" },
+                                "ok": true
+                            }
+    /{id}:
+        description: HAProxy config entity
+        get:
+            description: Get HAProxy config entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: HAProxy
+                            example: !include examples/haproxy.json
+        put:
+            description: Update HAProxy config entity with `id = {id}`
+            body:
+                application/json:
+                    schema: HAProxyP
+                    example: !include examples/haproxy-p.json
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Response
+                            example: |
+                                {
+                                    "data": {"task_id": "56f3f9a21241191520b03607" },
+                                    "ok": true
+                                }
+        delete:
+            description: Delete HAProxy config entity with `id = {id}`
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Response
+                            example: |
+                                {
+                                    "data": {"task_id": "56f3f9a21241191520b03607" },
+                                    "ok": true
+                                }

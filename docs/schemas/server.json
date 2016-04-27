@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "_id": "string",
+      "dt": "string",
+      "ip": "string",
+      "port": "number",
+      "server_name": "string",
+      "status": "number"
+    }
+  ],
+  "ok": "boolean"
+}

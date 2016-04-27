@@ -1,0 +1,22 @@
+{
+  "data": {
+    "_id": "string",
+    "name": "string",
+    "sys_id": "string",
+    "server_id": {
+      "_id": "string",
+      "ip": "string",
+      "server_name": "string",
+      "status": "number"
+    },
+    "workers": [
+      {
+        "_id": "string",
+        "ip": "string",
+        "server_name": "string",
+        "status": "number"
+      }
+    ]
+  },
+  "ok": "boolean"
+}

@@ -1,0 +1,6 @@
+{
+  "data": "object",
+  "msg": "string",
+  "error": "string",
+  "ok": "boolean"
+}

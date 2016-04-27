@@ -1,0 +1,25 @@
+{
+  "name": "servant-api-server",
+  "version": "1.0.0",
+  "description": "Servant API server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "servant",
+    "api"
+  ],
+  "author": "Vitaliy Orlov",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.13",
+    "morgan": "^1.7.0",
+    "nconf": "^0.8.4",
+    "winston": "^2.2.0"
+  }
+}

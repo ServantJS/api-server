@@ -1,0 +1,22 @@
+{
+  "data": {
+    "_id": "571e8695d1853f9310e885a1",
+    "name": "Test",
+    "sys_id": "GDFA745ADB319304AB369EE8CF6543904",
+    "server_id": {
+      "_id": "56e5c803debb28e952d1dc59",
+      "ip": "127.0.0.1",
+      "server_name": "localhost",
+      "status": 1
+    },
+    "workers": [
+      {
+        "_id": "56f007bc74408e2b14d22cf4",
+        "ip": "127.0.0.1",
+        "server_name": "localhost",
+        "status": 1
+      }
+    ]
+  },
+  "ok": true
+}

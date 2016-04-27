@@ -1,0 +1,15 @@
+{
+  "env": "debug",
+  "fork": false,
+  "ip": "127.0.0.1",
+  "port": 8030,
+
+  "root_account": {
+    "email": "root@root.com",
+    "pwd": "123"
+  },
+
+  "db": {
+    "url": "mongodb://127.0.0.1:27017/servant"
+  }
+}

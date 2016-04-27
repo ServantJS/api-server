@@ -1,0 +1,25 @@
+{
+  "data": {
+    "_id": "string",
+    "cmd": "string",
+    "dt": "string",
+    "error": [
+      {
+        "stack": "string",
+        "worker_id": "string"
+      }
+    ],
+    "module": "string",
+    "params": "string",
+    "report": [
+      {
+        "stack": "string",
+        "worker_id": "string"
+      }
+    ],
+    "status": "number",
+    "target_id": "string",
+    "username": "string"
+  },
+  "ok": "boolean"
+}
