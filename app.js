@@ -34,7 +34,7 @@ if (conf.get('env') == 'production') {
     app.use(morgan('common', {stream: accessLogStream}));
 } else {
     if (conf.get('fork')) {
-        morgan.token('process-id', function getId(req) {
+        morgan.token('process-id', (req) => {
             return process.pid
         });
 
@@ -100,7 +100,7 @@ app.use((err, req, res, next) => {
 
 //handle not found error
 app.use((req, res, next) => {
-    res.json({status: 'err', error: 'not_found', msg: 'Not Found'});
+    res.json({ok: false, error: 'not_found', msg: 'Not Found'});
 });
 
 (new db.UserModel({
