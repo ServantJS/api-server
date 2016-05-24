@@ -1,6 +1,5 @@
 {
-  "target": "W78454D1BD695A055C02E5372DFEF5680",
-  "container": [
+  "configs": [
     {
       "content": "global\n  maxconn 2048\n  log 127.0.0.1:64000 local0\n  log 127.0.0.1:64000 local1 notice",
       "kind": 0,
@@ -11,7 +10,7 @@
       "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
       "kind": 2,
       "name": "srv1",
-      "status": 0
+      "status": 1
     }
   ]
 }

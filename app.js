@@ -83,7 +83,10 @@ fs.readdirSync(path.join(__dirname, 'controllers')).forEach((name) => {
 //load modules url handlers
 fs.readdirSync(path.join(__dirname, 'modules')).forEach((name) => {
     logger.verbose(`Load module: ${name}`);
-    require(path.join(__dirname, 'modules', name))(app);
+
+    if (!name.endsWith('.js')) {
+        require(path.join(__dirname, 'modules', name))(app);
+    }
 });
 
 // handle error

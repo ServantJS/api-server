@@ -1,6 +1,5 @@
 {
-  "target": "string",
-  "container": [{
+  "configs": [{
     "content": "string",
     "kind": "number",
     "name": "string",

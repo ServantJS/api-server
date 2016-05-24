@@ -27,7 +27,7 @@ module.exports = (parent) => {
             limit = core.globalLimit;
         }
 
-        db.WorkersGroupModel.find()
+        db.WorkersGroupModel.find({})
             .select('name sys_id server_id workers')
             .populate('server_id', '_id server_name ip status')
             .populate('workers', '_id server_name ip status')

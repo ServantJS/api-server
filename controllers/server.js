@@ -26,7 +26,7 @@ module.exports = (parent) => {
             limit = core.globalLimit;
         }
 
-        db.CCServerModel.find()
+        db.ServerModel.find()
             .select('_id server_name ip status')
             .sort('server_name')
             .limit(limit)
@@ -53,7 +53,7 @@ module.exports = (parent) => {
 
     core.logger.verbose(`\t\tGET ${prefix}/{id}`);
     router.get('/:id', (req, res, next) => {
-        db.CCServerModel.findById(req.id, '_id dt server_name ip port status', (err, server) => {
+        db.ServerModel.findById(req.id, '_id dt server_name ip port status', (err, server) => {
             if (err) {
                 next(err);
             } else if (!server) {
@@ -62,6 +62,22 @@ module.exports = (parent) => {
                 res.json({ok: true, data: server});
             }
         });
+    });
+
+    core.logger.verbose(`\t\tGET ${prefix}/{id}/workers`);
+    router.get('/:id/workers', (req, res, next) => {
+        db.WorkerModel.find({server_id: req.id})
+            .select('sys_id _id dt server_name ip port status')
+            .sort('server_name')
+            .exec((err, list) => {
+                if (err) {
+                    next(err);
+                } else if (!list) {
+                    next();
+                } else {
+                    res.json({ok: true, data: list});
+                }
+            });
     });
 
     app.use(prefix, parent.authorize, router);

@@ -3,12 +3,15 @@
 const mongoose = require('mongoose');
 const express  = require('express');
 const async    = require('async');
+const util     = require('util');
 
 const db       = require('../../../lib/db');
 const moduleDB = require('../db');
 
 const app    = express();
 const router = express.Router();
+
+const checkIdOnRequest = require('../../common').checkIdOnRequest;
 
 const core = require('../../../src/core');
 
@@ -29,8 +32,8 @@ module.exports = (parent) => {
             limit = core.globalLimit;
         }
 
-        moduleDB.HAProxyConfigModel.find()
-            .select('content kind name order_num status target_id')
+        moduleDB.HAProxyConfigModel.find({})
+            .select('_id container target_id')
             .limit(limit)
             .exec((err, list) => {
                 if (err) {
@@ -45,119 +48,26 @@ module.exports = (parent) => {
 
     core.logger.verbose(`\t\tPOST ${prefix}`);
     router.post('/', (req, res, next) => {
-        let targetId = req.body.target;
-        let name = req.body.name;
-        let content = req.body.content;
-        const kind = parseInt(req.body.kind);
-        const order = parseInt(req.body.order_num);
-
-        let e = null;
-
-        if (!targetId) {
-            e = new Error('Missing "target" parameter"');
-            e.apiError = 'missing_param';
-            return next(e);
-        }
-
-        if (!name) {
-            e = new Error('Missing "name" parameter"');
-            e.apiError = 'missing_param';
-            return next(e);
-        }
-
-        if (!content) {
-            e = new Error('Missing "content" parameter"');
-            e.apiError = 'missing_param';
-            return next(e);
-        }
-
-        if (isNaN(kind)) {
-            e = new Error('Missing "kind" parameter"');
-            e.apiError = 'missing_param';
-            return next(e);
-        }
-
-        if (order && isNaN(parseInt(order))) {
-            e = new Error('Missing "order_num" parameter"');
-            e.apiError = 'missing_param';
-            return next(e);
-        }
-
-        name = name.trim();
-        content = content.trim();
-
-        const id = mongoose.Types.ObjectId();
-        const task = new db.TaskModel({
-            _id: id,
-
-            username: req.user.email,
-            target_id: targetId,
-            module: moduleName,
-            cmd: 'create-config',
-
-            params: JSON.stringify({name: name, content: content, kind: kind, order: order})
-        });
-
-        task.save((e) => {
-            if (e) next(e);
-            else res.json({ok: true, data: {task_id: id}});
-        });
-    });
-
-    router.param('id', (req, res, next, id) => {
         try {
-            req.paramModel = {};
-            req.paramModel.id = mongoose.Types.ObjectId(id);
+            let targetId = req.body.target;
+            let configs = req.body.configs;
 
-            moduleDB.HAProxyConfigModel.findById(req.paramModel.id, (err, config) => {
-                if (err) {
-                    next(err);
-                } else if (!config) {
-                    err = new Error(`HAProxy config "${req.paramModel.id}" not found`);
-                    err.apiError = 'not_found';
-                    next(err);
-                } else {
-                    req.paramModel.config = config;
-                    next();
-                }
-            });
-        } catch (e) {
-            e.apiError = 'invalid_id';
-            next(e);
-        }
-    });
-
-    core.logger.verbose(`\t\tGET ${prefix}/{id}`);
-    router.get('/:id', (req, res, next) => {
-        res.json({ok: true, data: {
-            name: req.paramModel.config.name,
-            content: req.paramModel.config.content,
-            order_num: req.paramModel.config.order_num,
-            kind: req.paramModel.config.kind,
-            status: req.paramModel.config.status,
-            target_id: req.paramModel.config.target_id
-        }});
-    });
-
-    core.logger.verbose(`\t\tPUT ${prefix}/{id}`);
-    router.put('/:id', (req, res, next) => {
-        try {
-            const name = req.body.name;
-            const content = req.body.content;
-            const order = parseInt(req.body.order_num);
-
-            let params = {id: req.paramModel.id};
-
-            if (name && name.length) {
-                params.name = name.trim();
+            if (!targetId) {
+                const e = new Error('Missing "target" parameter"');
+                e.apiError = 'missing_param';
+                return next(e);
             }
 
-            if (content && content.length) {
-                params.content = content.trim();
+            if (!configs) {
+                const e = new Error('Missing "configs" parameter"');
+                e.apiError = 'missing_param';
+                return next(e);
             }
 
-            if (order && !isNaN(parseInt(order))) {
-                params.order_number = order;
+            if (!Array.isArray(configs)) {
+                const e = new Error('"configs" must be an array of objects"');
+                e.apiError = 'wrong_param';
+                return next(e);
             }
 
             const id = mongoose.Types.ObjectId();
@@ -165,11 +75,66 @@ module.exports = (parent) => {
                 _id: id,
 
                 username: req.user.email,
-                target_id: req.paramModel.config.target_id,
+                target_id: targetId,
+                module: moduleName,
+                cmd: 'create-config',
+
+                params: JSON.stringify({container: configs})
+            });
+
+            task.save((err) => {
+                if (err) next(err);
+                else res.json({ok: true, data: {task_id: id}});
+            });
+        } catch (e) {
+            next(e);
+        }
+    });
+
+    router.param('id', checkIdOnRequest({
+        model: moduleDB.HAProxyConfigModel
+    }));
+
+    core.logger.verbose(`\t\tGET ${prefix}/{id}`);
+    router.get('/:id', (req, res, next) => {
+        res.json({ok: true, data: {
+            target_id: req.currentModel.target_id,
+            container: req.currentModel.container
+        }});
+    });
+
+    core.logger.verbose(`\t\tPUT ${prefix}/{id}`);
+    router.put('/:id', (req, res, next) => {
+        try {
+            let configs = req.body.configs;
+
+            if (!configs) {
+                const e = new Error('Missing "configs" parameter"');
+                e.apiError = 'missing_param';
+                return next(e);
+            }
+
+            if (!Array.isArray(configs)) {
+                const e = new Error('"configs" must be an array of objects"');
+                e.apiError = 'wrong_param';
+                return next(e);
+            }
+
+            const data = {
+                id: req.currentModel._id,
+                container: configs
+            };
+
+            const id = mongoose.Types.ObjectId();
+            const task = new db.TaskModel({
+                _id: id,
+
+                username: req.user.email,
+                target_id: req.currentModel.target_id,
                 module: moduleName,
                 cmd: 'update-config',
 
-                params: JSON.stringify(params)
+                params: JSON.stringify(data)
             });
 
             task.save((e) => {
@@ -188,17 +153,104 @@ module.exports = (parent) => {
             _id: id,
 
             username: req.user.email,
-            target_id: req.paramModel.config.target_id,
+            target_id: req.currentModel.target_id,
             module: moduleName,
             cmd: 'remove-config',
 
-            params: JSON.stringify({id: req.paramModel.id})
+            params: JSON.stringify({id: req.currentModel._id})
         });
 
         task.save((e) => {
             if (e) next(e);
             else res.json({ok: true, data: {task_id: id}});
         });
+    });
+
+    core.logger.verbose(`\t\tPUT ${prefix}/{id}/append`);
+    router.put('/:id/append', (req, res, next) => {
+        try {
+            let config = req.body.config;
+
+            if (!config) {
+                const e = new Error('Missing "config" parameter"');
+                e.apiError = 'missing_param';
+                return next(e);
+            }
+
+            if (!util.isObject(config)) {
+                const e = new Error('"configs" must be an objects"');
+                e.apiError = 'wrong_param';
+                return next(e);
+            }
+
+            req.currentModel.container.push(config);
+
+            const data = {
+                id: req.currentModel._id,
+                container: req.currentModel.container
+            };
+
+            const id = mongoose.Types.ObjectId();
+            const task = new db.TaskModel({
+                _id: id,
+
+                username: req.user.email,
+                target_id: req.currentModel.target_id,
+                module: moduleName,
+                cmd: 'update-config',
+
+                params: JSON.stringify(data)
+            });
+
+            task.save((e) => {
+                if (e) next(e);
+                else res.json({ok: true, data: {task_id: id}});
+            });
+        } catch (e) {
+            next(e);
+        }
+    });
+
+    core.logger.verbose(`\t\tDELETE ${prefix}/{id}/removeBy`);
+    router.delete('/:id/removeBy', (req, res, next) => {
+        try {
+            let name = req.body.name;
+            let index = parseInt(req.body.index);
+
+            if (name && name.length) {
+                req.currentModel.container = req.currentModel.container.filter((item) => item.name !== name);
+            } else if (index && util.isNumber(index)) {
+                req.currentModel.container.splice(index, 1);
+            } else {
+                const e = new Error('Missing params "name" or "index"');
+                e.apiError = 'missing_param';
+                return next(e);
+            }
+
+            const data = {
+                id: req.currentModel._id,
+                container: req.currentModel.container
+            };
+
+            const id = mongoose.Types.ObjectId();
+            const task = new db.TaskModel({
+                _id: id,
+
+                username: req.user.email,
+                target_id: req.currentModel.target_id,
+                module: moduleName,
+                cmd: 'update-config',
+
+                params: JSON.stringify(data)
+            });
+
+            task.save((e) => {
+                if (e) next(e);
+                else res.json({ok: true, data: {task_id: id}});
+            });
+        } catch (e) {
+            next(e);
+        }
     });
 
     app.use(prefix, parent.authorize, router);

@@ -2,12 +2,13 @@
   "data": [
     {
       "_id": "string",
-      "content": "string",
-      "kind": "number",
-      "name": "string",
-      "order_num": "number",
-      "status": "number",
-      "target_id": "string"
+      "target_id": "string",
+      "container": [{
+        "content": "string",
+        "kind": "number",
+        "name": "string",
+        "status": "number"
+      }]
     }
   ],
   "ok": "boolean"

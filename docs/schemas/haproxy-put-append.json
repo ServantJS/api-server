@@ -1,9 +1,8 @@
 {
-  "target": "string",
-  "container": [{
+  "config": {
     "content": "string",
     "kind": "number",
     "name": "string",
     "status": "number"
-  }]
+  }
 }

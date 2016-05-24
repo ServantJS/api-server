@@ -26,7 +26,7 @@ module.exports = (parent) => {
             limit = core.globalLimit;
         }
 
-        db.WorkerModel.find()
+        db.WorkerModel.find({})
             .select('sys_id server_name ip status')
             .sort('server_name')
             .limit(limit)

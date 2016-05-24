@@ -1,31 +1,31 @@
 {
   "data": [
     {
-      "_id": "56f3f9711241191520b03605",
-      "content": "global\n\tmaxconn 12",
-      "kind": 0,
-      "name": "global config",
-      "order_num": 0,
-      "status": 0,
-      "target_id": "W78454D1BD695A055C02E5372DFEF5680"
-    },
-    {
-      "_id": "56f3f9a21241191520b03606",
-      "content": "defaults\n\tlog global",
-      "kind": 1,
-      "name": "defaults config",
-      "order_num": 1,
-      "status": 0,
-      "target_id": "W78454D1BD695A055C02E5372DFEF5680"
-    },
-    {
-      "_id": "56f92efbf6de3a0e0b3f37c8",
-      "content": "listen srv1\nbind 192.168.51.15:64000\nserver srv10 127.0.0.1:222 check",
-      "kind": 2,
-      "name": "srv1 config",
-      "order_num": 2,
-      "status": 0,
-      "target_id": "W78454D1BD695A055C02E5372DFEF5680"
+      "_id": "574411eb98bf55cc472457d7",
+      "container": [
+        {
+          "content": "global\n  #nbproc 4\n  #daemon\n  maxconn 2048\n  log 127.0.0.1:64000 local0\n  log 127.0.0.1:64000 local1 notice",
+          "kind": 0,
+          "meta": [],
+          "name": "global",
+          "status": 0
+        },
+        {
+          "content": "listen admin\n  bind *:8088\n  stats enable\n  stats uri /haproxy?stats",
+          "kind": 2,
+          "meta": [],
+          "name": "mon",
+          "status": 0
+        },
+        {
+          "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
+          "kind": 2,
+          "meta": [],
+          "name": "srv1",
+          "status": 0
+        }
+      ],
+      "target_id": "W05E0C921535A9418BE8AD10FACBF0673"
     }
   ],
   "ok": true

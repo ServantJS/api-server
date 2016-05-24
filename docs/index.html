@@ -142,7 +142,7 @@
       .list-group-item:hover {
         background-color: #f5f5f5;
       }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>ServantJS API documentation <small>version v1</small></h1><p>https://api.servantjs.com/v1</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="servers" class="panel-title">/servers</h3></div><div class="panel-body"><div class="top-resource-description"><p>CC servers&#39; information</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_servers"><span class="parent"></span>/servers</a> <span class="methods"><a href="#servers_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_servers" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#servers_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get CC server entity collection</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="servers_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/servers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get CC server entity collection</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#servers_get_request" data-toggle="tab">Request</a></li><li><a href="#servers_get_response" data-toggle="tab">Response</a></li><li><a href="#servers_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="servers_get_request"><h3>Query Parameters</h3><ul><li><strong>limit</strong>: <em>(integer)</em><p>Max count of requested servers.</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="servers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>ServantJS API documentation <small>version v1</small></h1><p>https://api.servantjs.com/v1</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="servers" class="panel-title">/servers</h3></div><div class="panel-body"><div class="top-resource-description"><p>Servers&#39; information</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_servers"><span class="parent"></span>/servers</a> <span class="methods"><a href="#servers_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_servers" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#servers_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get Server entity collection</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="servers_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/servers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get Server entity collection</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#servers_get_request" data-toggle="tab">Request</a></li><li><a href="#servers_get_response" data-toggle="tab">Response</a></li><li><a href="#servers_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="servers_get_request"><h3>Query Parameters</h3><ul><li><strong>limit</strong>: <em>(integer)</em><p>Max count of requested servers.</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="servers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": [
     {
       "_id": "string",
@@ -162,7 +162,7 @@
     }
   ],
   "ok": true
-}</code></pre></div><div class="tab-pane" id="servers_get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_servers__id_"><span class="parent">/servers</span>/{id}</a> <span class="methods"><a href="#servers__id__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_servers__id_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>CC server entity</p></div><div class="list-group"><div onclick="window.location.href = '#servers__id__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get CC server entity with <code>id = {id}</code></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="servers__id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/servers</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get CC server entity with <code>id = {id}</code></p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#servers__id__get_request" data-toggle="tab">Request</a></li><li><a href="#servers__id__get_response" data-toggle="tab">Response</a></li><li><a href="#servers__id__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="servers__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="servers__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+}</code></pre></div><div class="tab-pane" id="servers_get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_servers__id_"><span class="parent">/servers</span>/{id}</a> <span class="methods"><a href="#servers__id__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_servers__id_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Server entity</p></div><div class="list-group"><div onclick="window.location.href = '#servers__id__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get Server entity with <code>id = {id}</code></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="servers__id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/servers</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get Server entity with <code>id = {id}</code></p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#servers__id__get_request" data-toggle="tab">Request</a></li><li><a href="#servers__id__get_response" data-toggle="tab">Response</a></li><li><a href="#servers__id__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="servers__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="servers__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": [
     {
       "_id": "string",
@@ -186,7 +186,29 @@
     }
   ],
   "ok": true
-}</code></pre></div><div class="tab-pane" id="servers__id__get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="workers" class="panel-title">/workers</h3></div><div class="panel-body"><div class="top-resource-description"><p>Workers&#39; information</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_workers"><span class="parent"></span>/workers</a> <span class="methods"><a href="#workers_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_workers" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#workers_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get Worker entity collection</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="workers_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/workers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get Worker entity collection</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#workers_get_request" data-toggle="tab">Request</a></li><li><a href="#workers_get_response" data-toggle="tab">Response</a></li><li><a href="#workers_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="workers_get_request"><h3>Query Parameters</h3><ul><li><strong>limit</strong>: <em>(integer)</em><p>Max count of requested servers.</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="workers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+}</code></pre></div><div class="tab-pane" id="servers__id__get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_servers__id__workers"><span class="parent">/servers</span>/{id}/workers</a> <span class="methods"><a href="#servers__id__workers_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_servers__id__workers" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#servers__id__workers_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get Worker entity collection that belongs to server with <code>id = {id}</code></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="servers__id__workers_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/servers</span>/{id}/workers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get Worker entity collection that belongs to server with <code>id = {id}</code></p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#servers__id__workers_get_request" data-toggle="tab">Request</a></li><li><a href="#servers__id__workers_get_response" data-toggle="tab">Response</a></li><li><a href="#servers__id__workers_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="servers__id__workers_get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="servers__id__workers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "data": [
+    {
+      "_id": "string",
+      "ip": "string",
+      "server_name": "string",
+      "status": "number",
+      "sys_id": "string"
+    }
+  ],
+  "ok": "boolean"
+}</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "data": [
+    {
+      "_id": "56f007bc74408e2b14d22cf4",
+      "ip": "127.0.0.1",
+      "server_name": "localhost",
+      "status": 1,
+      "sys_id": "W78454D1BD695A055C02E5372DFEF5680"
+    }
+  ],
+  "ok": true
+}</code></pre></div><div class="tab-pane" id="servers__id__workers_get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="workers" class="panel-title">/workers</h3></div><div class="panel-body"><div class="top-resource-description"><p>Workers&#39; information</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_workers"><span class="parent"></span>/workers</a> <span class="methods"><a href="#workers_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_workers" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#workers_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get Worker entity collection</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="workers_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/workers</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get Worker entity collection</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#workers_get_request" data-toggle="tab">Request</a></li><li><a href="#workers_get_response" data-toggle="tab">Response</a></li><li><a href="#workers_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="workers_get_request"><h3>Query Parameters</h3><ul><li><strong>limit</strong>: <em>(integer)</em><p>Max count of requested servers.</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="workers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": [
     {
       "_id": "string",
@@ -409,49 +431,75 @@
     "username": "user@gmail.com"
   },
   "ok": true
-}</code></pre></div><div class="tab-pane" id="tasks__id__get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="haproxy_configs" class="panel-title">/haproxy-configs</h3></div><div class="panel-body"><div class="top-resource-description"><p>HAProxy configs&#39; information</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_haproxy_configs"><span class="parent"></span>/haproxy-configs</a> <span class="methods"><a href="#haproxy_configs_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#haproxy_configs_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_haproxy_configs" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#haproxy_configs_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get HAProxy config entity collection</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#haproxy_configs_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Create HAProxy config entity</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/haproxy-configs</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get HAProxy config entity collection</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs_get_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs_get_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs_get_request"><h3>Query Parameters</h3><ul><li><strong>limit</strong>: <em>(integer)</em><p>Max count of requested servers.</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="haproxy_configs_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>HAProxies</code></pre><p><strong>Example</strong>:</p><pre><code>{
+}</code></pre></div><div class="tab-pane" id="tasks__id__get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="haproxy_configs" class="panel-title">/haproxy-configs</h3></div><div class="panel-body"><div class="top-resource-description"><p>HAProxy configs&#39; information</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_haproxy_configs"><span class="parent"></span>/haproxy-configs</a> <span class="methods"><a href="#haproxy_configs_get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#haproxy_configs_post"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_haproxy_configs" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#haproxy_configs_get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get HAProxy config entity collection</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#haproxy_configs_post'" class="list-group-item"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Create HAProxy config entity</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/haproxy-configs</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get HAProxy config entity collection</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs_get_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs_get_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs_get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs_get_request"><h3>Query Parameters</h3><ul><li><strong>limit</strong>: <em>(integer)</em><p>Max count of requested servers.</p><p><strong>Example</strong>:</p><pre><code>20</code></pre></li></ul></div><div class="tab-pane" id="haproxy_configs_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": [
     {
-      "_id": "56f3f9711241191520b03605",
-      "content": "global\n\tmaxconn 12",
-      "kind": 0,
-      "name": "global config",
-      "order_num": 0,
-      "status": 0,
-      "target_id": "W78454D1BD695A055C02E5372DFEF5680"
-    },
+      "_id": "string",
+      "target_id": "string",
+      "container": [{
+        "content": "string",
+        "kind": "number",
+        "name": "string",
+        "status": "number"
+      }]
+    }
+  ],
+  "ok": "boolean"
+}</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "data": [
     {
-      "_id": "56f3f9a21241191520b03606",
-      "content": "defaults\n\tlog global",
-      "kind": 1,
-      "name": "defaults config",
-      "order_num": 1,
-      "status": 0,
-      "target_id": "W78454D1BD695A055C02E5372DFEF5680"
-    },
-    {
-      "_id": "56f92efbf6de3a0e0b3f37c8",
-      "content": "listen srv1\nbind 192.168.51.15:64000\nserver srv10 127.0.0.1:222 check",
-      "kind": 2,
-      "name": "srv1 config",
-      "order_num": 2,
-      "status": 0,
-      "target_id": "W78454D1BD695A055C02E5372DFEF5680"
+      "_id": "574411eb98bf55cc472457d7",
+      "container": [
+        {
+          "content": "global\n  #nbproc 4\n  #daemon\n  maxconn 2048\n  log 127.0.0.1:64000 local0\n  log 127.0.0.1:64000 local1 notice",
+          "kind": 0,
+          "meta": [],
+          "name": "global",
+          "status": 0
+        },
+        {
+          "content": "listen admin\n  bind *:8088\n  stats enable\n  stats uri /haproxy?stats",
+          "kind": 2,
+          "meta": [],
+          "name": "mon",
+          "status": 0
+        },
+        {
+          "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
+          "kind": 2,
+          "meta": [],
+          "name": "srv1",
+          "status": 0
+        }
+      ],
+      "target_id": "W05E0C921535A9418BE8AD10FACBF0673"
     }
   ],
   "ok": true
 }</code></pre></div><div class="tab-pane" id="haproxy_configs_get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent"></span>/haproxy-configs</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create HAProxy config entity</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs_post_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs_post_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs_post_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "target": "string",
-  "name": "string",
-  "content": "string",
-  "kind": "number",
-  "order_num": "number"
+  "container": [{
+    "content": "string",
+    "kind": "number",
+    "name": "string",
+    "status": "number"
+  }]
 }</code></pre><p><strong>Example</strong>:</p><pre><code>{
   "target": "W78454D1BD695A055C02E5372DFEF5680",
-  "name": "Global",
-  "content": "global\n\n",
-  "kind": 0,
-  "order_num": 0
+  "container": [
+    {
+      "content": "global\n  maxconn 2048\n  log 127.0.0.1:64000 local0\n  log 127.0.0.1:64000 local1 notice",
+      "kind": 0,
+      "name": "global",
+      "status": 0
+    },
+    {
+      "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
+      "kind": 2,
+      "name": "srv1",
+      "status": 0
+    }
+  ]
 }</code></pre></div><div class="tab-pane" id="haproxy_configs_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": "object",
   "msg": "string",
@@ -464,37 +512,65 @@
 </code></pre></div><div class="tab-pane" id="haproxy_configs_post_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_haproxy_configs__id_"><span class="parent">/haproxy-configs</span>/{id}</a> <span class="methods"><a href="#haproxy_configs__id__get"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#haproxy_configs__id__put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href="#haproxy_configs__id__delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_haproxy_configs__id_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>HAProxy config entity</p></div><div class="list-group"><div onclick="window.location.href = '#haproxy_configs__id__get'" class="list-group-item"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Get HAProxy config entity with <code>id = {id}</code></p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#haproxy_configs__id__put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Update HAProxy config entity with <code>id = {id}</code></p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#haproxy_configs__id__delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Delete HAProxy config entity with <code>id = {id}</code></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs__id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/haproxy-configs</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get HAProxy config entity with <code>id = {id}</code></p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs__id__get_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs__id__get_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs__id__get_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs__id__get_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="haproxy_configs__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": {
     "_id": "string",
-    "content": "string",
-    "kind": "number",
-    "name": "string",
-    "order_num": "number",
-    "status": "number",
-    "target_id": "string"
+    "target_id": "string",
+    "container": [{
+      "content": "string",
+      "kind": "number",
+      "name": "string",
+      "status": "number"
+    }]
   },
   "ok": "boolean"
 }</code></pre><p><strong>Example</strong>:</p><pre><code>{
   "data": {
-    "_id": "56f92efbf6de3a0e0b3f37c8",
-    "content": "listen srv1\nbind 192.168.51.15:64000\nserver srv10 127.0.0.1:222 check",
-    "kind": 2,
-    "name": "srv1 config",
-    "order_num": 2,
-    "status": 0,w
-    "target_id": "W78454D1BD695A055C02E5372DFEF5680"
+    "container": [
+      {
+        "content": "global\n  #nbproc 4\n  #daemon\n  maxconn 2048\n  log 127.0.0.1:64000 local0\n  log 127.0.0.1:64000 local1 notice",
+        "kind": 0,
+        "meta": [],
+        "name": "global",
+        "status": 0
+      },
+      {
+        "content": "listen admin\n  bind *:8088\n  stats enable\n  stats uri /haproxy?stats",
+        "kind": 2,
+        "meta": [],
+        "name": "mon",
+        "status": 0
+      },
+      {
+        "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
+        "kind": 2,
+        "meta": [],
+        "name": "srv1",
+        "status": 0
+      }
+    ],
+    "target_id": "W05E0C921535A9418BE8AD10FACBF0673"
   },
   "ok": true
 }</code></pre></div><div class="tab-pane" id="haproxy_configs__id__get_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs__id__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/haproxy-configs</span>/{id}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update HAProxy config entity with <code>id = {id}</code></p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs__id__put_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs__id__put_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs__id__put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs__id__put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
-  "target": "string",
-  "name": "string",
-  "content": "string",
-  "kind": "number",
-  "order_num": "number"
+  "configs": [{
+    "content": "string",
+    "kind": "number",
+    "name": "string",
+    "status": "number"
+  }]
 }</code></pre><p><strong>Example</strong>:</p><pre><code>{
-  "target": "W78454D1BD695A055C02E5372DFEF5680",
-  "name": "Global",
-  "content": "global\n\n",
-  "kind": 0,
-  "order_num": 0
+  "configs": [
+    {
+      "content": "global\n  maxconn 2048\n  log 127.0.0.1:64000 local0\n  log 127.0.0.1:64000 local1 notice",
+      "kind": 0,
+      "name": "global",
+      "status": 0
+    },
+    {
+      "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
+      "kind": 2,
+      "name": "srv1",
+      "status": 1
+    }
+  ]
 }</code></pre></div><div class="tab-pane" id="haproxy_configs__id__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "data": "object",
   "msg": "string",
@@ -512,4 +588,43 @@
 }</code></pre><p><strong>Example</strong>:</p><pre><code>{
     "data": {"task_id": "56f3f9a21241191520b03607" },
     "ok": true
-}</code></pre></div><div class="tab-pane" id="haproxy_configs__id__delete_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#servers">/servers</a></li><li><a href="#workers">/workers</a></li><li><a href="#workers_groups">/workers-groups</a></li><li><a href="#tasks">/tasks</a></li><li><a href="#haproxy_configs">/haproxy-configs</a></li></ul></div></div></div></div></body></html>
+}
+</code></pre></div><div class="tab-pane" id="haproxy_configs__id__delete_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_haproxy_configs__id__append"><span class="parent">/haproxy-configs</span>/{id}/append</a> <span class="methods"><a href="#haproxy_configs__id__append_put"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_haproxy_configs__id__append" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Update HAProxy config entity</p></div><div class="list-group"><div onclick="window.location.href = '#haproxy_configs__id__append_put'" class="list-group-item"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Append config item to the end of HAProxy config with <code>id = {id}</code></p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs__id__append_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/haproxy-configs</span>/{id}/append</h4></div><div class="modal-body"><div class="alert alert-info"><p>Append config item to the end of HAProxy config with <code>id = {id}</code></p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs__id__append_put_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs__id__append_put_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs__id__append_put_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs__id__append_put_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "config": {
+    "content": "string",
+    "kind": "number",
+    "name": "string",
+    "status": "number"
+  }
+}</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "config": {
+    "content": "listen srv1\n  bind 192.168.51.15:65000\n  server srv10 127.0.0.1:223 check",
+    "kind": 2,
+    "name": "srv2",
+    "status": 0
+  }
+}</code></pre></div><div class="tab-pane" id="haproxy_configs__id__append_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "data": "object",
+  "msg": "string",
+  "error": "string",
+  "ok": "boolean"
+}</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "data": {"task_id": "57443a7553b16edc4a15b58e" },
+    "ok": true
+}
+</code></pre></div><div class="tab-pane" id="haproxy_configs__id__append_put_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_haproxy_configs__id__removeBy"><span class="parent">/haproxy-configs</span>/{id}/removeBy</a> <span class="methods"><a href="#haproxy_configs__id__removeBy_delete"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id="panel_haproxy_configs__id__removeBy" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Remove HAProxy config item</p></div><div class="list-group"><div onclick="window.location.href = '#haproxy_configs__id__removeBy_delete'" class="list-group-item"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class="method_description"><p>Remove config item from the HAProxy config with <code>id = {id}</code> by index or name</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="haproxy_configs__id__removeBy_delete"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class="parent">/haproxy-configs</span>/{id}/removeBy</h4></div><div class="modal-body"><div class="alert alert-info"><p>Remove config item from the HAProxy config with <code>id = {id}</code> by index or name</p></div><div class="alert alert-warning"><span class="glyphicon glyphicon-lock" title="Authentication required"></span> Secured by authToken</div><ul class="nav nav-tabs"><li class="active"><a href="#haproxy_configs__id__removeBy_delete_request" data-toggle="tab">Request</a></li><li><a href="#haproxy_configs__id__removeBy_delete_response" data-toggle="tab">Response</a></li><li><a href="#haproxy_configs__id__removeBy_delete_securedby" data-toggle="tab">Security</a></li></ul><div class="tab-content"><div class="tab-pane active" id="haproxy_configs__id__removeBy_delete_request"><h3>URI Parameters</h3><ul><li><strong>id</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "name": "string",
+    "index": "number"
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "name": "srv3"
+}
+</code></pre></div><div class="tab-pane" id="haproxy_configs__id__removeBy_delete_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "data": "object",
+  "msg": "string",
+  "error": "string",
+  "ok": "boolean"
+}</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "data": {"task_id": "57443a7553b16edc4a15b58e" },
+    "ok": true
+}</code></pre></div><div class="tab-pane" id="haproxy_configs__id__removeBy_delete_securedby">Secured by authToken<h3>Headers</h3><ul><li><strong>X-SJS-AccessToken</strong>: <em>( - pattern: UAT-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)</em></li></ul></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#servers">/servers</a></li><li><a href="#workers">/workers</a></li><li><a href="#workers_groups">/workers-groups</a></li><li><a href="#tasks">/tasks</a></li><li><a href="#haproxy_configs">/haproxy-configs</a></li></ul></div></div></div></div></body></html>

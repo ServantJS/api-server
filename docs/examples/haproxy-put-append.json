@@ -1,0 +1,8 @@
+{
+  "config": {
+    "content": "listen srv1\n  bind 192.168.51.15:65000\n  server srv10 127.0.0.1:223 check",
+    "kind": 2,
+    "name": "srv2",
+    "status": 0
+  }
+}

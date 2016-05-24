@@ -27,6 +27,8 @@ schemas:
     - WorkersGroups: !include schemas/workers-groups.json
     - HAProxy: !include schemas/haproxy.json
     - HAProxyP: !include schemas/haproxy-p.json
+    - HAProxyPUT: !include schemas/haproxy-put.json
+    - HAProxyPUTAppend: !include schemas/haproxy-put-append.json
     - HaProxies: !include schemas/haproxies.json
 
 traits:
@@ -39,9 +41,9 @@ traits:
                 example: 20
 
 /servers:
-    description: CC servers' information
+    description: Servers' information
     get:
-        description: Get CC server entity collection
+        description: Get Server entity collection
         is: [ paged ]
         responses:
             200:
@@ -50,15 +52,25 @@ traits:
                         schema: Servers
                         example: !include examples/servers.json
     /{id}:
-        description: CC server entity
+        description: Server entity
         get:
-            description: Get CC server entity with `id = {id}`
+            description: Get Server entity with `id = {id}`
             responses:
                 200:
                     body:
                         application/json:
                             schema: Server
                             example: !include examples/server.json
+    /{id}/workers:
+        get:
+            description: Get Worker entity collection that belongs to server with `id = {id}`
+            responses:
+                200:
+
+                    body:
+                        application/json:
+                            schema: Workers
+                            example: !include examples/workers.json
 
 /workers:
     description: Workers' information
@@ -175,7 +187,7 @@ traits:
             200:
                 body:
                     application/json:
-                        schema: HAProxies
+                        schema: HaProxies
                         example: !include examples/haproxies.json
     post:
         description: Create HAProxy config entity
@@ -207,8 +219,8 @@ traits:
             description: Update HAProxy config entity with `id = {id}`
             body:
                 application/json:
-                    schema: HAProxyP
-                    example: !include examples/haproxy-p.json
+                    schema: HAProxyPUT
+                    example: !include examples/haproxy-put.json
             responses:
                 200:
                     body:
@@ -229,5 +241,48 @@ traits:
                             example: |
                                 {
                                     "data": {"task_id": "56f3f9a21241191520b03607" },
+                                    "ok": true
+                                }
+    /{id}/append:
+        description: Update HAProxy config entity
+        put:
+            description: Append config item to the end of HAProxy config with `id = {id}`
+            body:
+                application/json:
+                    schema: HAProxyPUTAppend
+                    example: !include examples/haproxy-put-append.json
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Response
+                            example: |
+                                {
+                                    "data": {"task_id": "57443a7553b16edc4a15b58e" },
+                                    "ok": true
+                                }
+    /{id}/removeBy:
+        description: Remove HAProxy config item
+        delete:
+            description: Remove config item from the HAProxy config with `id = {id}` by index or name
+            body:
+                application/json:
+                    schema: |
+                        {
+                            "name": "string",
+                            "index": "number"
+                        }
+                    example: |
+                        {
+                            "name": "srv3"
+                        }
+            responses:
+                200:
+                    body:
+                        application/json:
+                            schema: Response
+                            example: |
+                                {
+                                    "data": {"task_id": "57443a7553b16edc4a15b58e" },
                                     "ok": true
                                 }

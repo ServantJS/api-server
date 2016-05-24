@@ -26,7 +26,7 @@ module.exports = (parent) => {
             limit = core.globalLimit;
         }
 
-        db.TaskModel.find()
+        db.TaskModel.find({})
             .select('dt username module cmd status')
             .sort('dt')
             .limit(limit)
