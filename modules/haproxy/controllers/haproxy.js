@@ -16,7 +16,7 @@ const checkIdOnRequest = require('../../common').checkIdOnRequest;
 const core = require('../../../src/core');
 
 const moduleName = 'haproxy';
-const prefix = '/haproxy-configs';
+const prefix = '/haproxy/configs';
 
 module.exports = (parent) => {
     app.disable('etag');
