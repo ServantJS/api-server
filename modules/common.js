@@ -26,3 +26,19 @@ exports.checkIdOnRequest = (options) => {
     }
 
 };
+
+exports.isStringParam = (body, param) => {
+    return body.hasOwnProperty(param) && typeof body[param] === 'string' && body[param].trim().length;
+};
+
+exports.isNumberParam = (body, param) => {
+    return body.hasOwnProperty(param) && !isNaN(parseInt(body[param], 10));
+};
+
+exports.isArrayParam = (body, param) => {
+    return body.hasOwnProperty(param) && Array.isArray(body[param]);
+};
+
+exports.isNotEmptyArrayParam = (body, param) => {
+    return body.hasOwnProperty(param) && Array.isArray(body[param]) && body[param].length;
+};
