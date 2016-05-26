@@ -3,6 +3,12 @@
     "content": "string",
     "kind": "number",
     "name": "string",
-    "status": "number"
+    "status": "number",
+    "meta": [
+      {
+        "token_name": "string",
+        "value": "string"
+      }
+    ]
   }
 }

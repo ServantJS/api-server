@@ -1,8 +1,16 @@
 {
-  "configs": [{
-    "content": "string",
-    "kind": "number",
-    "name": "string",
-    "status": "number"
-  }]
+  "configs": [
+    {
+      "content": "string",
+      "kind": "number",
+      "name": "string",
+      "status": "number",
+      "meta": [
+        {
+          "token_name": "string",
+          "value": "string"
+        }
+      ]
+    }
+  ]
 }

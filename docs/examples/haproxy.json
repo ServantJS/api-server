@@ -18,9 +18,18 @@
       {
         "content": "listen srv1\n  bind 192.168.51.15:64000\n  server srv10 127.0.0.1:222 check",
         "kind": 2,
-        "meta": [],
         "name": "srv1",
-        "status": 0
+        "status": 0,
+        "meta" : [
+          {
+            "token_name" : "ClientIP",
+            "value" : "12.2.2.4"
+          },
+          {
+            "token_name" : "Email",
+            "value" : "sw@sw.com"
+          }
+        ]
       }
     ],
     "target_id": "W05E0C921535A9418BE8AD10FACBF0673"

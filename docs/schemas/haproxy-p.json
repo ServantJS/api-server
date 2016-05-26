@@ -1,9 +1,17 @@
 {
   "target": "string",
-  "container": [{
-    "content": "string",
-    "kind": "number",
-    "name": "string",
-    "status": "number"
-  }]
+  "container": [
+    {
+      "content": "string",
+      "kind": "number",
+      "name": "string",
+      "status": "number",
+      "meta": [
+        {
+          "token_name": "string",
+          "value": "string"
+        }
+      ]
+    }
+  ]
 }

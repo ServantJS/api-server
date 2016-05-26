@@ -11,6 +11,7 @@ const moduleDB = require('../db');
 const app    = express();
 const router = express.Router();
 
+const _ = require('../../common');
 const checkIdOnRequest = require('../../common').checkIdOnRequest;
 
 const core = require('../../../src/core');
@@ -52,21 +53,15 @@ module.exports = (parent) => {
             let targetId = req.body.target;
             let configs = req.body.configs;
 
-            if (!targetId) {
+            if (!_.isStringParam(req.body, 'target')) {
                 const e = new Error('Missing "target" parameter"');
                 e.apiError = 'missing_param';
                 return next(e);
             }
 
-            if (!configs) {
+            if (!_.isNotEmptyArrayParam(req.body, 'configs')) {
                 const e = new Error('Missing "configs" parameter"');
                 e.apiError = 'missing_param';
-                return next(e);
-            }
-
-            if (!Array.isArray(configs)) {
-                const e = new Error('"configs" must be an array of objects"');
-                e.apiError = 'wrong_param';
                 return next(e);
             }
 
@@ -108,15 +103,9 @@ module.exports = (parent) => {
         try {
             let configs = req.body.configs;
 
-            if (!configs) {
+            if (!_.isNotEmptyArrayParam(req.body, 'configs')) {
                 const e = new Error('Missing "configs" parameter"');
                 e.apiError = 'missing_param';
-                return next(e);
-            }
-
-            if (!Array.isArray(configs)) {
-                const e = new Error('"configs" must be an array of objects"');
-                e.apiError = 'wrong_param';
                 return next(e);
             }
 
@@ -170,7 +159,7 @@ module.exports = (parent) => {
     router.put('/:id/append', (req, res, next) => {
         try {
             let config = req.body.config;
-
+            
             if (!config) {
                 const e = new Error('Missing "config" parameter"');
                 e.apiError = 'missing_param';
@@ -217,9 +206,9 @@ module.exports = (parent) => {
             let name = req.body.name;
             let index = parseInt(req.body.index);
 
-            if (name && name.length) {
+            if (_.isStringParam(req.body, 'name')) {
                 req.currentModel.container = req.currentModel.container.filter((item) => item.name !== name);
-            } else if (index && util.isNumber(index)) {
+            } else if (_.isNumberParam(req.body, 'index')) {
                 req.currentModel.container.splice(index, 1);
             } else {
                 const e = new Error('Missing params "name" or "index"');
