@@ -207,8 +207,22 @@ module.exports = (parent) => {
             let index = parseInt(req.body.index);
 
             if (_.isStringParam(req.body, 'name')) {
+
+                if (!req.currentModel.container.filter((item) => item.name === name).length) {
+                    const e = new Error(`Block with name "${name}" does not exist.`);
+                    e.apiError = 'incorrect_param';
+                    return next(e);
+                }
+
                 req.currentModel.container = req.currentModel.container.filter((item) => item.name !== name);
             } else if (_.isNumberParam(req.body, 'index')) {
+
+                if (index < 0 || index > req.currentModel.container.length - 1) {
+                    const e = new Error(`Block with index "${index}" does not exist.`);
+                    e.apiError = 'incorrect_param';
+                    return next(e);
+                }
+
                 req.currentModel.container.splice(index, 1);
             } else {
                 const e = new Error('Missing params "name" or "index"');
