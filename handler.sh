@@ -1,20 +1,56 @@
 #!/usr/bin/env bash
 
-START_SCRIPT="servantjs-api-server.js"
-INSTALL_DIR="/usr/local/servantjs/api-server"
-
-cd ${INSTALL_DIR}
+SERVANT_DIR="/usr/local/servantjs-api-server"
+NAME="api-server"
+START_SCRIPT="servantjs-${NAME}.js"
+INSTALL_DIR="${SERVANT_DIR}/${NAME}"
+GIT_NAME="${SERVANT_DIR}/servantjs-${NAME}"
+LINK_PATH="/usr/local/bin/servant-${NAME}"
+BACKUP_DIR="${SERVANT_DIR}/.${NAME}_backup"
+INSTALL_BACKUP_FILE="${SERVANT_DIR}/.${NAME}_install.sh"
 
 function start {
+    cd ${INSTALL_DIR}
     forever start ${START_SCRIPT}
 }
 
 function stop {
+    cd ${INSTALL_DIR}
     forever stop ${START_SCRIPT}
 }
 
 function status {
+    cd ${INSTALL_DIR}
     forever list | grep "pid\|${START_SCRIPT}"
+}
+
+function update {
+    stop
+
+    cd ../
+
+    cp -r ${INSTALL_DIR} ${BACKUP_DIR}
+    rm -f ${LINK_PATH}
+
+    cp ${INSTALL_DIR}/install.sh ${INSTALL_BACKUP_FILE}
+
+    rm -fr ${INSTALL_DIR}
+
+    bash ${INSTALL_BACKUP_FILE}
+
+    if [ $? != 0 ]; then
+        rm -fr ${GIT_NAME}
+        rm -fr ${INSTALL_DIR}
+        ln -s ${INSTALL_DIR}/handler.sh ${LINK_PATH}
+        mv ${BACKUP_DIR} ${INSTALL_DIR}
+    else
+        cp ${BACKUP_DIR}/config.json ${INSTALL_DIR}/
+        rm -fr ${BACKUP_DIR}
+    fi
+
+    rm -f ${INSTALL_BACKUP_FILE}
+
+    start
 }
 
 case "$1" in
@@ -31,8 +67,11 @@ case "$1" in
   status)
     status
     ;;
+  update)
+    update
+    ;;
   *)
-    echo "Usage: servant-api-server <start|stop|restart|status>"
+    echo "Usage: servant-${NAME} <start|stop|restart|status|update>"
     exit 1
     ;;
 
