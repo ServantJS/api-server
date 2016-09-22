@@ -81,12 +81,15 @@ fs.readdirSync(path.join(__dirname, 'controllers')).forEach((name) => {
 });
 
 //load modules url handlers
-fs.readdirSync(path.join(__dirname, 'modules')).forEach((name) => {
-    logger.verbose(`Load module: ${name}`);
-
-    if (!name.endsWith('.js')) {
-        require(path.join(__dirname, 'modules', name))(app);
+conf.get('modules').forEach((module) => {
+    if (!module.enabled) {
+        logger.verbose(`Module "${module.name.toUpperCase()}" is disabled`);
+        return;
     }
+
+    logger.verbose(`Load module: ${module.name}`);
+
+    require(path.join(__dirname, 'modules', module.name))(app);
 });
 
 // handle error
