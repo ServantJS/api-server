@@ -56,6 +56,7 @@ fi
 
 chmod 777 ${INSTALL_DIR}/${NAME}/handler.sh
 ln -s ${INSTALL_DIR}/${NAME}/handler.sh /usr/local/bin/servant-${NAME}
+mkdir ${INSTALL_DIR}/${NAME}/logs
 
 echo Servant-API-Server successfully installed
 echo To run use next commad: servant-api-server start
